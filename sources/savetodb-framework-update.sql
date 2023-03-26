@@ -1,15 +1,15 @@
 -- =============================================
 -- SaveToDB Framework for PostgreSQL
--- Version 10.6, December 13, 2022
+-- Version 10.8, January 9, 2023
 --
 -- This script updates SaveToDB Framework 10 to the latest version
 --
--- Copyright 2015-2022 Gartle LLC
+-- Copyright 2015-2023 Gartle LLC
 --
 -- License: MIT
 -- =============================================
 
-SELECT CASE WHEN 1006 <= cast(substr(handler_code, 1, strpos(handler_code, '.') - 1) AS int) * 100 + cast(substr(handler_code, strpos(handler_code, '.') + 1) AS decimal) THEN 'SaveToDB Framework is up-to-date. Update skipped' ELSE '' END AS check_version FROM xls.handlers WHERE table_schema = 'xls' AND table_name = 'savetodb_framework' AND column_name = 'version' AND event_name = 'Information' LIMIT 1;
+SELECT CASE WHEN 1008 <= cast(substr(handler_code, 1, strpos(handler_code, '.') - 1) AS int) * 100 + cast(substr(handler_code, strpos(handler_code, '.') + 1) AS decimal) THEN 'SaveToDB Framework is up-to-date. Update skipped' ELSE '' END AS check_version FROM xls.handlers WHERE table_schema = 'xls' AND table_name = 'savetodb_framework' AND column_name = 'version' AND event_name = 'Information' LIMIT 1;
 
 DELETE FROM xls.handlers WHERE table_schema = 'xls' AND table_name = 'users' AND handler_name = 'xl_actions_set_role_permissions';
 
@@ -34,7 +34,7 @@ FROM
         , CAST(NULL AS integer) AS menu_order
         , CAST(NULL AS boolean) AS edit_parameters
 
-    UNION ALL SELECT 'xls', 'savetodb_framework', 'version', 'Information', NULL, NULL, 'ATTRIBUTE', '10.6', NULL, NULL, NULL
+    UNION ALL SELECT 'xls', 'savetodb_framework', 'version', 'Information', NULL, NULL, 'ATTRIBUTE', '10.8', NULL, NULL, NULL
     UNION ALL SELECT 'xls', 'handlers', 'event_name', 'ValidationList', NULL, NULL, 'VALUES', 'Actions, AddHyperlinks, AddStateColumn, Authentication, BitColumn, Change, ContextMenu, ConvertFormulas, DataTypeBit, DataTypeBoolean, DataTypeDate, DataTypeDateTime, DataTypeDateTimeOffset, DataTypeDouble, DataTypeInt, DataTypeGuid, DataTypeString, DataTypeTime, DataTypeTimeSpan, DefaultListObject, DefaultValue, DependsOn, DoNotAddChangeHandler, DoNotAddDependsOn, DoNotAddManyToMany, DoNotAddValidation, DoNotChange, DoNotConvertFormulas, DoNotKeepComments, DoNotKeepFormulas, DoNotSave, DoNotSelect, DoNotSort, DoNotTranslate, DoubleClick, DynamicColumns, Format, Formula, FormulaValue, Information, JsonForm, KeepFormulas, KeepComments, License, LoadFormat, ManyToMany, ParameterValues, ProtectRows, RegEx, SaveFormat, SaveWithoutTransaction, SelectionChange, SelectionList, SelectPeriod, SyncParameter, UpdateChangedCellsOnly, UpdateEntireRow, ValidationList', NULL, NULL, NULL
 
     ) s
@@ -94,7 +94,7 @@ FROM
         , CAST(NULL AS integer) AS menu_order
         , CAST(NULL AS boolean) AS edit_parameters
 
-    UNION ALL SELECT 'xls', 'savetodb_framework', 'version', 'Information', NULL, NULL, 'ATTRIBUTE', '10.6', NULL, NULL, NULL
+    UNION ALL SELECT 'xls', 'savetodb_framework', 'version', 'Information', NULL, NULL, 'ATTRIBUTE', '10.8', NULL, NULL, NULL
     UNION ALL SELECT 'xls', 'handlers', 'event_name', 'ValidationList', NULL, NULL, 'VALUES', 'Actions, AddHyperlinks, AddStateColumn, Authentication, BitColumn, Change, ContextMenu, ConvertFormulas, DataTypeBit, DataTypeBoolean, DataTypeDate, DataTypeDateTime, DataTypeDateTimeOffset, DataTypeDouble, DataTypeInt, DataTypeGuid, DataTypeString, DataTypeTime, DataTypeTimeSpan, DefaultListObject, DefaultValue, DependsOn, DoNotAddChangeHandler, DoNotAddDependsOn, DoNotAddManyToMany, DoNotAddValidation, DoNotChange, DoNotConvertFormulas, DoNotKeepComments, DoNotKeepFormulas, DoNotSave, DoNotSelect, DoNotSort, DoNotTranslate, DoubleClick, DynamicColumns, Format, Formula, FormulaValue, Information, JsonForm, KeepFormulas, KeepComments, License, LoadFormat, ManyToMany, ParameterValues, ProtectRows, RegEx, SaveFormat, SaveWithoutTransaction, SelectionChange, SelectionList, SelectPeriod, SyncParameter, UpdateChangedCellsOnly, UpdateEntireRow, ValidationList', NULL, NULL, NULL
 
     ) s
